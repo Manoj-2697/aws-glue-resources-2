@@ -1,6 +1,3 @@
-# Repository: aws-glue-resources-2
-# File: glue_streaming.tf
-
 resource "aws_glue_job" "streaming_clickstream_job" {
   name              = "streaming-clickstream-job"
   role_arn          = "arn:aws:iam::123456789012:role/AWSGlueServiceRole"
@@ -17,6 +14,6 @@ resource "aws_glue_job" "streaming_clickstream_job" {
 
   default_arguments = {
     "--job-language"              = "python"
-    "--additional-python-modules" = "boto3>=1.28.0,urllib3>=2.0.0"
+    "--additional-python-modules" = "awswrangler==3.6.0,boto3>=1.28.0,urllib3>=2.0.0"
   }
 }

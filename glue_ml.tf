@@ -1,6 +1,3 @@
-# Repository: aws-glue-resources-2
-# File: glue_ml_infer.tf
-
 resource "aws_glue_job" "heavy_ml_micro_worker_job" {
   name              = "heavy-ml-micro-worker-job"
   role_arn          = "arn:aws:iam::123456789012:role/AWSGlueServiceRole"
@@ -17,6 +14,6 @@ resource "aws_glue_job" "heavy_ml_micro_worker_job" {
 
   default_arguments = {
     "--job-language"              = "python"
-    "--additional-python-modules" = "torch,tensorflow"
+    "--additional-python-modules" = "awswrangler==3.9.1,torch,tensorflow"
   }
 }
